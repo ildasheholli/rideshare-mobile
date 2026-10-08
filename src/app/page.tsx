@@ -32,7 +32,7 @@ export default function Home() {
             <p className="eyebrow"><span>01—03</span> LINJAT E DISPONUESHME</p>
             <h2 id="departures-title">Zgjidh nisjen</h2>
           </div>
-          <span className="date-chip">E HËNË <span>·</span> PRISHTINË</span>
+          <span className="date-chip">NISJET E SOTME <span>·</span> PRISHTINË</span>
         </div>
         <div className="trip-list">
           {udhetimet.map((udhetim) => (

@@ -10,7 +10,9 @@ export function KartaUdhetimi({ udhetim }: { udhetim: Udhetim }) {
         <span className="route-index">0{udhetim.id}</span>
         <span className={`availability${kaVende ? "" : " availability-full"}`}>
           <span className="availability-dot" />
-          {kaVende ? `${udhetim.vende} vende të lira` : "I plotë"}
+          {kaVende
+            ? `${udhetim.vende} ${udhetim.vende === 1 ? "vend i lirë" : "vende të lira"}`
+            : "I plotë"}
         </span>
       </div>
       <div className="trip-route">
