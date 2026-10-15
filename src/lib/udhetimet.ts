@@ -11,7 +11,7 @@ export type Udhetim = {
 };
 
 function getSql() {
-  const databaseUrl = process.env.DATABASE_URL;
+  const databaseUrl = process.env.DATABASE_URL ?? process.env.STORAGE_POSTGRES_URL;
   if (!databaseUrl) throw new Error("Databaza nuk është konfiguruar.");
   return neon(databaseUrl);
 }
