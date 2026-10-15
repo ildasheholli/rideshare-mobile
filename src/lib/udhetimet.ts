@@ -1,5 +1,5 @@
 import "server-only";
-import { neon } from "@neondatabase/serverless";
+import { getSql } from "./db";
 
 export type Udhetim = {
   id: string;
@@ -9,12 +9,6 @@ export type Udhetim = {
   vendtakimi: string;
   vende: number;
 };
-
-function getSql() {
-  const databaseUrl = process.env.DATABASE_URL ?? process.env.STORAGE_POSTGRES_URL;
-  if (!databaseUrl) throw new Error("Databaza nuk është konfiguruar.");
-  return neon(databaseUrl);
-}
 
 export async function lexoUdhetimet(): Promise<Udhetim[]> {
   const sql = getSql();

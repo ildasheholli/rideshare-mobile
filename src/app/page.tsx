@@ -23,7 +23,10 @@ async function HomeContent() {
             <span className="wordmark-mark">R</span>
             <span>RideShare</span>
           </Link>
-          <span className="topbar-location">PRISHTINË · AAB</span>
+          <div className="topbar-tools">
+            <span className="topbar-location">PRISHTINË · AAB</span>
+            <Link className="panel-nav-link" href="/panel">Hyr / Paneli im</Link>
+          </div>
         </header>
         <section className="state-panel" role="alert">
           <h1>RideShare</h1>
@@ -45,7 +48,10 @@ async function HomeContent() {
           <span className="wordmark-mark">R</span>
           <span>RideShare</span>
         </Link>
-        <span className="topbar-location"><span className="location-dot" /> PRISHTINË · AAB</span>
+        <div className="topbar-tools">
+          <span className="topbar-location"><span className="location-dot" /> PRISHTINË · AAB</span>
+          <Link className="panel-nav-link" href="/panel">Hyr / Paneli im</Link>
+        </div>
       </header>
 
       <section className="intro" aria-labelledby="page-title">

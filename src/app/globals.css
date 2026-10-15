@@ -31,6 +31,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--coral); outline
 .wordmark-mark { display: grid; width: 30px; aspect-ratio: 1; place-items: center; border-radius: 50%; background: var(--green); color: white; font-family: Georgia, serif; font-size: 18px; font-weight: 400; }
 .topbar-location, .eyebrow, .date-chip, .trip-time span, .trip-destination-label, .demo-note { font-size: 10px; font-weight: 750; letter-spacing: .09em; }
 .topbar-location { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
+.topbar-tools { display: inline-flex; align-items: center; gap: 18px; }
+.panel-nav-link { color: var(--green); font-size: 12px; font-weight: 750; text-decoration: none; }
+.panel-nav-link:hover { color: var(--coral); }
 .location-dot, .demo-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--coral); }
 .intro { display: flex; min-height: 292px; align-items: center; justify-content: space-between; padding: 40px 0 32px; }
 .eyebrow { display: flex; align-items: center; gap: 11px; margin: 0 0 16px; color: var(--muted); }
@@ -106,11 +109,23 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--coral); outline
 .request-summary span:first-child { color: var(--muted); }
 .request-status { color: var(--green); font-weight: 750; }
 .not-found-code { color: var(--coral) !important; font-family: Georgia, serif; font-size: 18px !important; }
+.panel-content { display: grid; gap: 14px; }
+.panel-content h1 { margin: 0; }
+.panel-content > p { margin: 0; }
+.auth-notice { color: #8b3d2c !important; }
+.panel-form { display: grid; justify-items: start; gap: 12px; margin-top: 8px; padding-top: 20px; border-top: 1px solid var(--line); }
+.panel-form h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 24px; font-weight: 400; }
+.panel-form label { color: var(--muted); font-size: 12px; font-weight: 700; }
+.panel-form input[type="time"] { min-height: 42px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 2px; background: white; color: var(--ink); font: inherit; }
+.panel-form p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.panel-form button, .panel-content > button { cursor: pointer; }
 
 @media (max-width: 600px) {
   .site-shell { width: min(100% - 32px, 520px); }
   .topbar { height: 64px; }
   .topbar-location { font-size: 9px; }
+  .topbar-tools { gap: 9px; }
+  .panel-nav-link { font-size: 10px; }
   .intro { min-height: 254px; padding: 34px 0 26px; }
   .intro h1 { font-size: 52px; }
   .intro-copy { max-width: 245px; font-size: 13px; }
