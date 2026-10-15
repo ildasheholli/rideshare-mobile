@@ -1,11 +1,7 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { gjejUdhetimin, udhetimet } from "@/lib/udhetimet";
-
-export function generateStaticParams() {
-  return udhetimet.map(({ id }) => ({ id }));
-}
+import { gjejUdhetimin } from "@/lib/udhetimet";
 
 type KerkesaProps = {
   params: Promise<{ id: string }>;
@@ -21,7 +17,31 @@ export default function Kerkesa({ params }: KerkesaProps) {
 
 async function KerkesaContent({ params }: KerkesaProps) {
   const { id } = await params;
-  const udhetim = gjejUdhetimin(id);
+  let udhetim;
+  try {
+    udhetim = await gjejUdhetimin(id);
+  } catch {
+    return (
+      <main className="site-shell subpage">
+        <header className="topbar">
+          <Link className="wordmark" href="/">
+            <span className="wordmark-mark">R</span>
+            <span>RideShare</span>
+          </Link>
+          <span className="topbar-location">KËRKESË DEMO</span>
+        </header>
+        <section className="state-panel" role="alert">
+          <h1>RideShare</h1>
+          <p>
+            {process.env.DATABASE_URL
+              ? "Nuk u lidhëm me databazën. Kontrollo DATABASE_URL dhe ekzekuto schema.sql në Neon."
+              : "Mungon DATABASE_URL. Vendos lidhjen e Neon në .env.local dhe rinis serverin."}
+          </p>
+          <Link className="primary-action" href={`/udhetimi/${id}`}>Kthehu te detajet</Link>
+        </section>
+      </main>
+    );
+  }
 
   if (!udhetim) notFound();
 

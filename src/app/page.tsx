@@ -1,8 +1,43 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { KartaUdhetimi } from "@/components/KartaUdhetimi";
-import { udhetimet } from "@/lib/udhetimet";
+import { lexoUdhetimet, type Udhetim } from "@/lib/udhetimet";
 
 export default function Home() {
+  return (
+    <Suspense fallback={<main className="site-shell subpage" aria-busy="true">Po ngarkohen udhëtimet…</main>}>
+      <HomeContent />
+    </Suspense>
+  );
+}
+
+async function HomeContent() {
+  let udhetimet: Udhetim[];
+  try {
+    udhetimet = await lexoUdhetimet();
+  } catch {
+    return (
+      <main className="site-shell subpage">
+        <header className="topbar">
+          <Link className="wordmark" href="/" aria-label="RideShare, faqja kryesore">
+            <span className="wordmark-mark">R</span>
+            <span>RideShare</span>
+          </Link>
+          <span className="topbar-location">PRISHTINË · AAB</span>
+        </header>
+        <section className="state-panel" role="alert">
+          <h1>RideShare</h1>
+          <p>
+            {process.env.DATABASE_URL
+              ? "Nuk u lidhëm me databazën. Kontrollo DATABASE_URL dhe ekzekuto schema.sql në Neon."
+              : "Mungon DATABASE_URL. Vendos lidhjen e Neon në .env.local dhe rinis serverin."}
+          </p>
+          <Link className="primary-action" href="/">Provo përsëri</Link>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="site-shell">
       <header className="topbar">
@@ -19,8 +54,8 @@ export default function Home() {
           <h1 id="page-title">Gjej rrugën<br />për sot<span className="title-period">.</span></h1>
           <p className="intro-copy">Nisje të zgjedhura për në AAB.<br className="desktop-break" /> Zgjidh një udhëtim dhe kontrollo hollësitë.</p>
         </div>
-        <div className="intro-stamp" aria-label="Tri udhëtime të planifikuara">
-          <span className="stamp-number">03</span>
+        <div className="intro-stamp" aria-label={`${udhetimet.length} udhëtime të planifikuara`}>
+          <span className="stamp-number">{String(udhetimet.length).padStart(2, "0")}</span>
           <span className="stamp-label">NISJE<br />SOT</span>
           <span className="stamp-arrow" aria-hidden="true">↘</span>
         </div>
@@ -35,9 +70,13 @@ export default function Home() {
           <span className="date-chip">NISJET E SOTME <span>·</span> PRISHTINË</span>
         </div>
         <div className="trip-list">
-          {udhetimet.map((udhetim) => (
-            <KartaUdhetimi key={udhetim.id} udhetim={udhetim} />
-          ))}
+          {udhetimet.length === 0 ? (
+            <p>Nuk ka udhëtime për momentin.</p>
+          ) : (
+            udhetimet.map((udhetim) => (
+              <KartaUdhetimi key={udhetim.id} udhetim={udhetim} />
+            ))
+          )}
         </div>
       </section>
 
