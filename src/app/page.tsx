@@ -28,7 +28,7 @@ async function HomeContent() {
         <section className="state-panel" role="alert">
           <h1>RideShare</h1>
           <p>
-            {process.env.DATABASE_URL
+            {process.env.DATABASE_URL || process.env.STORAGE_POSTGRES_URL
               ? "Nuk u lidhëm me databazën. Kontrollo DATABASE_URL dhe ekzekuto schema.sql në Neon."
               : "Mungon DATABASE_URL. Vendos lidhjen e Neon në .env.local dhe rinis serverin."}
           </p>
