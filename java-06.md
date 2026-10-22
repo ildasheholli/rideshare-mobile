@@ -1,7 +1,7 @@
 # RideShare — Java 6 · PWA dhe puna offline
 
 Ruaje si java-06.md pranë README të repository-t, jashtë aplikacioni/.
-Hiqi . Mos vendos sekrete, email ose fotografi kredencialesh.
+Hiqi. Mos vendos sekrete, email ose fotografi kredencialesh.
 
 ## Çfarë ndërtova
 Manifesti te `/manifest.webmanifest` jep emrin, pamjen dhe ikonat e RideShare AAB për instalim si PWA. Service worker-i ruan skedarin e leximit offline dhe ikonat, pastaj ruan kopjen e listës publike kur ajo merret me sukses nga serveri. Faqja `/offline.html` e shfaq atë kopje vetëm për lexim; nuk krijon ose konfirmon rezervime.

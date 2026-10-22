@@ -25,6 +25,9 @@ body {
 a { color: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; }
+.pwa-note { display: flex; min-height: 42px; align-items: center; justify-content: center; gap: 12px; padding: 8px 24px; border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, .72); font-size: 11px; }
+.pwa-note a { color: var(--green); font-weight: 750; }
+.pwa-note span { color: var(--muted); }
 .site-shell { width: min(100% - 48px, 1024px); margin: 0 auto; }
 .topbar { height: 78px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
 .wordmark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-size: 15px; font-weight: 750; }
@@ -121,6 +124,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--coral); outline
 .panel-form button, .panel-content > button { cursor: pointer; }
 
 @media (max-width: 600px) {
+  .pwa-note { flex-direction: column; gap: 2px; text-align: center; }
   .site-shell { width: min(100% - 32px, 520px); }
   .topbar { height: 64px; }
   .topbar-location { font-size: 9px; }

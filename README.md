@@ -17,3 +17,11 @@ Open `http://localhost:3000`.
 - `/udhetimi/2` shows trip details.
 - `/udhetimi/2/kerkesa` shows the simulated pending request.
 - `/udhetimi/99` shows the not-found state.
+
+## Offline public list
+
+The PWA manifest is available at `/manifest.webmanifest`. After the app is opened online,
+its service worker saves the public trip list for read-only access at `/offline.html`;
+when offline, a reload of `/` opens that reader. Cached trip data can be stale and does
+not confirm or create a booking. See [java-06.md](./java-06.md) for implementation notes
+and the verification report.
