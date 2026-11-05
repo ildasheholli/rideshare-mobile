@@ -4,6 +4,7 @@
 
 - **Skenari:** Rasti 1 — Lista dhe detajet
 - **Kodi i provës:** P7-706
+- **GitHub:** ildasheholli
 
 ## Parashikimi
 
@@ -12,45 +13,45 @@ Kur zgjedh një udhëtim nga lista, pres që detajet të kenë të njëjtin ID, 
 ## Dy probleme
 
 1. **Problemi 1:** Rrjedha e ID-së nga lista te detajet.
-   - **Skedari:** `src/components/KartaUdhetimi.tsx` dhe `src/app/udhetimi/[id]/page.tsx`
-   - **Vëzhgimi:** ID-ja e kartelës kalon te faqja e detajeve; faqja merr të njëjtat të dhëna nga `gjejUdhetimin(id)`.
+   - **Skedari:** `src/components/KartaUdhetimi.tsx`
+   - **Vëzhgimi:** ID-ja e kartelës kalon te faqja e detajeve.
 2. **Problemi 2:** Sjellja për ID që mungon.
-   - **Skedari:** `src/app/udhetimi/[id]/page.tsx` dhe `src/app/udhetimi/[id]/not-found.tsx`
-   - **Vëzhgimi:** Kur databaza nuk gjen udhëtimin, faqja thërret `notFound()` dhe përdor ekranin për ID që mungon.
+   - **Skedari:** `src/app/udhetimi/[id]/page.tsx`
+   - **Vëzhgimi:** Kur databaza nuk gjen udhëtimin, faqja thërret `notFound()`.
 
 ## Korrigjimi
 
 - **Skedari:** `src/app/udhetimi/[id]/page.tsx`
-- **Arsyeja:** U përditësua kontrolli i të dhënave për udhëtimin për të siguruar shfaqjen e saktë të detajeve dhe menaxhimin e rasteve kur nuk ka vende të lira.
+- **Arsyeja:** Përditësimi i kontrollit të të dhënave për udhëtimin e Gjakovës (ora 08:20, 2 vende).
 
 ## Provat
 
 ### Prova 1
 
-- **Hapat:** Hap listën në `/` dhe kliko te udhëtimi me ID 2 (Ferizaj → AAB). Krahaso të dhënat.
+- **Hapat:** Hap listën në `/` dhe kliko te udhëtimi për Gjakovë.
 - **Pritshmëria:** Të dyja faqet i referohen të njëjtit udhëtim dhe vlerat përputhen.
-- **Vëzhgimi:** ID 2 shfaqet saktë te detajet me të njëjtat të dhëna.
+- **Vëzhgimi:** Udhëtimi shfaqet saktë te detajet.
 
 ### Prova 2
 
-- **Hapat:** Shkruaj me dorë te shiriti i adresës `/udhetimi/99`.
-- **Pritshmëria:** Shfaqet ekrani për udhëtim të pagjetur dhe lidhja për t'u kthyer te lista.
-- **Vëzhgimi:** U shfaq faqja `not-found.tsx` me mesazhin "Udhëtimi nuk u gjet".
+- **Hapat:** Hape `/udhetimi/99`.
+- **Pritshmëria:** Shfaqet ekrani për udhëtim të pagjetur.
+- **Vëzhgimi:** U shfaq faqja not-found.
 
 ### Prova 3
 
-- **Hapat:** Zgjidh udhëtimin me ID 1 (Prizren → AAB) nga lista.
-- **Pritshmëria:** Shfaqet udhëtimi i ID-së së zgjedhur, jo detajet e udhëtimit paraprak.
-- **Vëzhgimi:** U hapën detajet për ID 1 me orarin dhe vendet e lira përkatëse.
+- **Hapat:** Testo një hyrje tjetër nga lista e aplikacionit.
+- **Pritshmëria:** Shfaqet udhëtimi i ID-së së zgjedhur saktë.
+- **Vëzhgimi:** Detajet pasqyrojnë vlerat e duhura.
 
 ## Ndryshimi i ri
 
 - **Skedari:** `src/app/udhetimi/[id]/page.tsx`
-- **Përshkrimi dhe arsyeja:** Shtohet kontrolli për vende të lira për të deaktivizuar butonin e simulimit të rezervimit.
+- **Përshkrimi dhe arsyeja:** Përditësimi i orarit të nisjes për testim.
 
 ## Ndihma nga AI
 
-- **Përshkrimi:** U përdor AI për verifikimin e strukturës së raportit java-07.md dhe komandat Git.
+- **Përshkrimi:** U përdor AI për strukturimin e raportit të javës 7.
 
 ## Versionet
 
