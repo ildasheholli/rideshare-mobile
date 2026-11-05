@@ -7,7 +7,7 @@
 
 ## Parashikimi
 
-Kur zgjedh një udhëtim nga lista, pres që detajet të kenë të njëjtin ID, nisje, orë, vendtakim dhe vende të lira. Një ID që nuk ekziston duhet të shfaqë faqen 404 dhe lidhjen për kthim te lista.
+Kur zgjedh një udhëtim nga lista, pres që detajet të kenë të njëjtin ID, nisje, orë, vendtakim dhe vende të lira. Një ID që nuk ekziston duhet të shfaqë ekranin për udhëtim të pagjetur dhe lidhjen për kthim te lista.
 
 ## Dy sjellje që kontrollova
 
@@ -16,7 +16,7 @@ Kur zgjedh një udhëtim nga lista, pres që detajet të kenë të njëjtin ID, 
    - **Vëzhgimi:** ID-ja e kartelës kalon te faqja e detajeve; faqja merr të njëjtat të dhëna nga `gjejUdhetimin(id)`.
 2. **Kontrolli:** Sjellja për ID që mungon.
    - **Skedari:** `src/app/udhetimi/[id]/page.tsx` dhe `src/app/udhetimi/[id]/not-found.tsx`
-   - **Vëzhgimi:** Kur databaza nuk gjen udhëtimin, faqja thërret `notFound()` dhe paraqet mesazhin 404 me lidhje te lista.
+   - **Vëzhgimi:** Kur databaza nuk gjen udhëtimin, faqja thërret `notFound()` dhe përdor ekranin për ID që mungon, me lidhje te lista.
 
 ## Korrigjimi
 
@@ -36,7 +36,7 @@ Plotëso vëzhgimet pasi t'i kryesh në aplikacionin dhe databazën tënde. Mos 
 ### Prova 2 — ID që mungon
 
 - **Hapat:** Hape `/udhetimi/99`.
-- **Pritshmëria:** Shfaqet faqja 404 dhe lidhja për t'u kthyer te lista.
+- **Pritshmëria:** Shfaqet ekrani për udhëtim të pagjetur dhe lidhja për t'u kthyer te lista.
 - **Vëzhgimi:** [PLOTËSO pas provës]
 
 ### Prova 3 — Një hyrje tjetër
