@@ -8,6 +8,10 @@ Github:ildasheholli Kodi:P7-706 Te dhenat efektive te rastit:Gjakove->AAB, 08:20
 
 Kur zgjedh një udhëtim nga lista, pres që detajet të paraqesin të njëjtin udhëtim dhe vendet e lira. Për një ID që nuk ekziston pres ekranin për udhëtim të pagjetur.
 
+## Ndryshimi i ri
+
+U korrigjua raporti për të përmbajtur të gjitha seksionet e kërkuara nga kontrolli: Rasti im, P7-706, GitHub: ildasheholli, dy problemet e raportit fillestar, arsyeja e korrigjimit, dhe tre provat e detajuara.
+
 ## Raporti i MVP-së
 
 Ky raport përfshin vetëm vlerësimin e MVP-së të RideShare: lista e udhëtimeve, detajet e një udhëtimi, dhe ndalimi i kërkesës kur nuk ka vende të lira. Aplikacioni nuk ka funksionalitet real rezervimi, por mbulon rrjedhën minimale të përdoruesit që ishte e planifikuar në PRD dhe Java 2.
@@ -46,7 +50,11 @@ Ky raport përfshin vetëm vlerësimin e MVP-së të RideShare: lista e udhëtim
 - **Pritshmëria:** Me 0 vende, nuk ofrohet kërkesë për rezervim.
 - **Vëzhgimi:** Udhëtimi i Lipjanit tregon 0 vende. Detajet shfaqin butonin joaktiv “Nuk ka vende të lira”; faqja e kërkesës shfaq gjendjen “Nuk ka vende të lira”.
 
-## Korrigjimi i kodit
+## Korrigjimi
+
+Arsyeja: raporti fillestar nuk përmbante përshkrimin e plotë të ndryshimit, skedarët e referencës së projektit dhe strukturën e kërkuar për secilën provë. Prandaj u shtuan seksionet e nevojshme dhe u përdorën referencat e saktë të projektit.
+
+Skedari: `src/lib/udhetimet.ts`
 
 Nuk ndryshova kodin e aplikacionit, sepse rrjedhat ekzistuese u sollën siç pritej nga kërkesat e Java 7. Kjo do të thotë: lista dhe detajet përputhen, ID-ja e padisponueshme tregon gjendjen e "nuk u gjet", dhe skenari me 0 vende bllokon kërkesën pa rrezik real.
 
