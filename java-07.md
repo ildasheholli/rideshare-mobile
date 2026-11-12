@@ -2,11 +2,8 @@
 
 ## Rasti im
 
-- **Skenari:** Rasti 1 — Lista dhe detajet
-- **Kodi i provës:** P7-706
-- **GitHub:** ildasheholli
-- **Skedari:** `src/lib/udhetimet.ts`
-
+Github:ildasheholli Kodi:P7-706 Te dhenat efektive te rastit:Gjakove->AAB, 08:20, 2 vende, Ora per Proven e re: 08:25.
+ 
 ## Parashikimi
 
 Kur zgjedh një udhëtim nga lista, pres që detajet të paraqesin të njëjtin udhëtim dhe vendet e lira. Për një ID që nuk ekziston pres ekranin për udhëtim të pagjetur.
