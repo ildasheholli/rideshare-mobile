@@ -45,5 +45,5 @@ Vëzhgimi: butoni është joaktiv ose shfaqet mesazhi “Nuk ka vende të lira�
 U korrigjua raporti i Java 7 dhe u shtuan seksionet e nevojshme sipas kërkesës së kontrollit automatik.
 
 ## Versionet
-Para: https://github.com/ildasheholli/rideshare-mobile/commit/fee2071c8cb4fef2c164f6349c74f5be0745f47c
-Pas: https://github.com/ildasheholli/rideshare-mobile/commit/7a59af0c0c6a7925c275af4f3de3d90f1c63200f
+Para: https://github.com/ildasheholli/rideshare-mobile/commit/403171fabd8b9da9e5724446b05c1fe84a01c84d
+Pas: https://github.com/ildasheholli/rideshare-mobile/commit/168e5912a8f6d6cf857f26cdb155bf07a563271c
