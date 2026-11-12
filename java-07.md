@@ -1,28 +1,28 @@
 # RideShare — Java 7 · Provo, korrigjo dhe shpjego
 
 ## Rasti im
-
-- **Skenari:** Rasti 1 — Lista dhe detajet
-- **Kodi i provës:** P7-706
-- **GitHub:** ildasheholli
-- **Skedari:** `src/lib/udhetimet.ts`
+- GitHub: ildasheholli
+-Kodi: P7-706
+-Skenari i zgjedhur (numri dhe titulli, nga Rastet 1–5): Rasti 1 - Lista dhe detajet
+-ID i udhëtimit në projektin tim: p7-706
+Të dhënat fiktive të rastit: Gjakovë → AAB, 08:20, 2 vende. Ora për provën e re: 08:25.
 
 ## Parashikimi
 
-Kur zgjedh një udhëtim nga lista, pres që detajet të paraqesin të njëjtin udhëtim dhe vendet e lira. Për një ID që nuk ekziston pres ekranin për udhëtim të pagjetur.
+Kur zgjedh një udhëtim nga lista, pres që detajet të paraqesin të njëjtin udhëtim dhe vendet e lira. Për një ID që nuk ekziston, pres ekranin për udhëtim të pagjetur.
 
 ## Raporti i MVP-së
 
-Ky raport përfshin vetëm vlerësimin e MVP-së të RideShare: lista e udhëtimeve, detajet e një udhëtimi, dhe ndalimi i kërkesës kur nuk ka vende të lira. Aplikacioni nuk ka funksionalitet real rezervimi, por mbulon rrjedhën minimale të përdoruesit që ishte e planifikuar në PRD dhe Java 2.
+Ky raport përfshin vetëm vlerësimin e MVP-së të RideShare: lista e udhëtimeve, detajet e një udhëtimi dhe ndalimi i kërkesës kur nuk ka vende të lira. Aplikacioni nuk ka funksionalitet real rezervimi, por mbulon rrjedhën minimale të përdoruesit që ishte e planifikuar në PRD dhe Java 2.
 
 - Lista e udhëtimeve shfaqet nga backend-i dhe përfshin nisjen, orën dhe numrin e vendeve të lira.
 - Detajet e udhëtimit përdorin të njëjtin ID dhe të njëjtat të dhëna si lista për të verifikuar përputhjen.
 - Kur një udhëtim ka 0 vende, butoni i kërkesës është i çaktivizuar dhe përdoruesi merr mesazhin e duhur.
-- Kur një ID nuk ekziston, aplikacioni shfaq një gjendje të përshtatshme "nuk u gjet" dhe i jep përdoruesit mundësinë e kthimit te lista.
+- Kur një ID nuk ekziston, aplikacioni shfaq një gjendje të përshtatshme “nuk u gjet” dhe i jep përdoruesit mundësinë e kthimit te lista.
 
 ## Ndryshimi i ri
 
-U korrigjua raporti për të përmbajtur të gjitha seksionet e kërkuara nga kontrolli: Rasti im, P7-706, GitHub: ildasheholli, dy problemet e raportit fillestar, arsyeja e korrigjimit, dhe tre provat e detajuara.
+U korrigjua raporti për të përmbajtur të gjitha seksionet e kërkuara nga kontrolli: Rasti im, P7-706, GitHub: ildasheholli, dy problemet e raportit fillestar, arsyeja e korrigjimit dhe tre provat e detajuara.
 
 ## Dy probleme që gjeta në raportin fillestar
 
@@ -40,7 +40,7 @@ Arsyeja: raporti fillestar nuk përmbante përshkrimin e plotë të ndryshimit, 
 
 - **Skedari:** `src/lib/udhetimet.ts`
 
-Nuk ndryshova kodin e aplikacionit, sepse rrjedhat ekzistuese u sollën siç pritej nga kërkesat e Java 7. Kjo do të thotë: lista dhe detajet përputhen, ID-ja e padisponueshme tregon gjendjen e "nuk u gjet", dhe skenari me 0 vende bllokon kërkesën pa rrezik real.
+Nuk ndryshova kodin e aplikacionit, sepse rrjedhat ekzistuese u sollën siç pritej nga kërkesat e Java 7. Kjo do të thotë: lista dhe detajet përputhen, ID-ja e padisponueshme tregon gjendjen e “nuk u gjet”, dhe skenari me 0 vende bllokon kërkesën pa rrezik real.
 
 ## Prova 1 — Lista dhe detajet
 
