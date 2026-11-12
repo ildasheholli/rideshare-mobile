@@ -1,17 +1,17 @@
 # RideShare · Java 7
 
-## Rasti im
+## Rasti im (P7-706, GitHub: ildasheholli)
 GitHub: ildasheholli
 Kodi: P7-706
-Skenari i zgjedhur (numri dhe titulli, nga Rastet 1–5): Rasti 1 - Lista dhe detajet
-ID i udhëtimit në projektin tim: p7-706
+Skenari i zgjedhur: Rasti 1 - Lista dhe detajet
+ID i udhëtimit: p7-706
 Të dhënat fiktive të rastit: Gjakovë → AAB, 08:20, 2 vende. Ora për provën e re: 08:25.
 
 ## Parashikimi
-Prisja që lista e udhëtimeve të shfaqte të dhëna korrekte, detajet e udhëtimit të përputheshin me të njëjtin ID dhe që kur nuk kishte vende të lira, kërkesa të ishte e çaktivizuar. Po ashtu prisja një mesazh të qartë kur udhëtimi nuk ekzistonte.
+Prisja që në listë të shfaqeshin udhëtime me të dhëna korrekte, që detajet të përputheshin me ID-n e zgjedhur dhe që kur nuk kishte vende të lira, kërkesa të ishte e çaktivizuar. Po ashtu prisja një mesazh të qartë kur udhëtimi nuk ekzistonte.
 
 ## Raporti i MVP-së
-Ky raport përfshin vlerësimin e MVP-së të RideShare: lista e udhëtimeve, detajet e një udhëtimi dhe ndalimi i kërkesës kur nuk ka vende të lira. Aplikacioni mbulon rrjedhën minimale të përdoruesit të planifikuar në Java 2 dhe përputhet me skenarët e testi.
+Ky raport përfshin vlerësimin e MVP-së të RideShare: lista e udhëtimeve, detajet e një udhëtimi dhe ndalimi i kërkesës kur nuk ka vende të lira. Aplikacioni mbulon rrjedhën minimale të përdoruesit të planifikuar në Java 2 dhe përputhet me skenarët e testit.
 
 ## Dy probleme
 1. Në raportin fillestar, disa të dhëna nuk përputheshin me aplikacionin real dhe referencat nuk ishin të qarta.
@@ -27,7 +27,7 @@ Skedari: src/lib/udhetimet.ts
 Arsyeja: raporti fillestar nuk përmbante formatin e saktë të seksioneve dhe përshkrimeve të kërkuara nga kontrolli. U korrigjuan titujt, skedarët e referencës dhe strukturimi i provave.
 
 ## Prova 1 (Hapat, Pritshmëria, Vëzhgimi)
-Hapat: Hapa listën e udhëtimeve, zgjodha një udhëtim dhe shkuarja te /udhetimi/1.
+Hapat: Hapa listën e udhëtimeve, zgjodha një udhëtim dhe shkuar te /udhetimi/1.
 Pritshmëria: detajet e udhëtimit duhet të përputhen me të njëjtin udhëtim.
 Vëzhgimi: faqja e detajeve dhe lista treguan të njëjtin nisje dhe të njëjtin ID.
 
