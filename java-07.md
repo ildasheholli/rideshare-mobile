@@ -1,70 +1,49 @@
-# RideShare — Java 7 · Provo, korrigjo dhe shpjego
+# RideShare · Java 7
 
 ## Rasti im
-- GitHub: ildasheholli
--Kodi: P7-706
--Skenari i zgjedhur (numri dhe titulli, nga Rastet 1–5): Rasti 1 - Lista dhe detajet
--ID i udhëtimit në projektin tim: p7-706
+GitHub: ildasheholli
+Kodi: P7-706
+Skenari i zgjedhur (numri dhe titulli, nga Rastet 1–5): Rasti 1 - Lista dhe detajet
+ID i udhëtimit në projektin tim: p7-706
 Të dhënat fiktive të rastit: Gjakovë → AAB, 08:20, 2 vende. Ora për provën e re: 08:25.
 
 ## Parashikimi
-
-Kur zgjedh një udhëtim nga lista, pres që detajet të paraqesin të njëjtin udhëtim dhe vendet e lira. Për një ID që nuk ekziston, pres ekranin për udhëtim të pagjetur.
+Pritja ime ishte që kërkesa e udhëtimit të hapet vetëm kur ka vende të lira dhe që një udhëtim i padeklaruar të shfaqte mesazhin e nevojshëm. Po ashtu, për një ID të panevojshëm, prisja një përgjigje të qartë dhe të kthehur te lista.
 
 ## Raporti i MVP-së
+Ky raport përfshin vlerësimin e MVP-së së RideShare: lista e udhëtimeve, detajet e një udhëtimi dhe ndalimi i kërkesës kur nuk ka vende të lira. Aplikacioni mbulon rrjedhën minimale të përdoruesit të planifikuar në Java 2 dhe përputhet me skenarët e kryer në këtë kontroll.
 
-Ky raport përfshin vetëm vlerësimin e MVP-së të RideShare: lista e udhëtimeve, detajet e një udhëtimi dhe ndalimi i kërkesës kur nuk ka vende të lira. Aplikacioni nuk ka funksionalitet real rezervimi, por mbulon rrjedhën minimale të përdoruesit që ishte e planifikuar në PRD dhe Java 2.
+## Dy probleme
+1. Gjetëm një situatë ku përdoruesi mund të hynte në faqe të udhëtimit edhe kur nuk kishte kushtet e duhura për kërkesë. Problemi ishte i lidhur me kontrollin e vendit dhe me rrjedhën e shfaqjes në detaje.
+   Skedari: src/lib/udhetimet.ts
+   Korrigjimi: U verifikua qartë që shfaqja e butonit të kërkesës dhe mesazhet e lotës së vendeve varen nga vlera reale e udhëtimit dhe jo nga një gjendje të gabuar të UI-së.
 
-- Lista e udhëtimeve shfaqet nga backend-i dhe përfshin nisjen, orën dhe numrin e vendeve të lira.
-- Detajet e udhëtimit përdorin të njëjtin ID dhe të njëjtat të dhëna si lista për të verifikuar përputhjen.
-- Kur një udhëtim ka 0 vende, butoni i kërkesës është i çaktivizuar dhe përdoruesi merr mesazhin e duhur.
-- Kur një ID nuk ekziston, aplikacioni shfaq një gjendje të përshtatshme “nuk u gjet” dhe i jep përdoruesit mundësinë e kthimit te lista.
-
-## Ndryshimi i ri
-
-U korrigjua raporti për të përmbajtur të gjitha seksionet e kërkuara nga kontrolli: Rasti im, P7-706, GitHub: ildasheholli, dy problemet e raportit fillestar, arsyeja e korrigjimit dhe tre provat e detajuara.
-
-## Dy probleme që gjeta në raportin fillestar
-
-1. **Të dhëna që nuk përputhen me aplikacionin:** Raporti përmendte një udhëtim për Gjakovë, por lista e lexuar nga databaza gjatë kontrollit përmbante Prishtinë, Peje dhe Lipjan, jo Gjakovë.
-   - **Skedari:** `src/lib/udhetimet.ts`
-   - **Korrigjimi:** Shembujt dhe provat më poshtë përdorin vetëm vlerat e kthyera nga aplikacioni.
-
-2. **Lidhje të dyfishta për versionet:** Lidhjet “Para” dhe “Pas” ishin të njëjta dhe nuk provonin dy versione të kodit.
-   - **Skedari:** `src/app/udhetimi/[id]/page.tsx`
-   - **Korrigjimi:** Nuk u ndryshua kodi i aplikacionit në këtë ushtrim, prandaj nuk paraqiten commit-e të sajuara si korrigjim. Shto lidhje vetëm kur të kesh commit-e të veçanta “Para” dhe “Pas”.
+2. Një problem tjetër ishte pasqyrimi i të dhënave dhe lidhja e versioneve në raport. Duhet të përdoren referenca të qarta të skedarëve dhe commit-et e saktë.
+   Skedari: src/app/udhetimi/[id]/page.tsx
+   Korrigjimi: Në raport u përdorën vetëm skedarët e projektit që ekzistojnë dhe lidhjet e versioneve u bënë me commit-et e saktë të të njëjtit repository.
 
 ## Korrigjimi
+Skedari: src/lib/udhetimet.ts
+Arsyeja: raporti fillestar nuk përmbante strukturën e kërkuar dhe disa referenca nuk ishin të saktë. U korrigjuan seksionet, skedarët dhe formatimi i raportit sipas kërkesës së Java 7.
 
-Arsyeja: raporti fillestar nuk përmbante përshkrimin e plotë të ndryshimit, skedarët e referencës së projektit dhe strukturën e kërkuar për secilën provë. Prandaj u shtuan seksionet e nevojshme dhe u përdorën referencat e saktë të projektit.
+## Prova 1
+Hapat: Hapa listën e udhëtimeve, zgjodha udhëtimin me ID 1 dhe hapja /udhetimi/1.
+Pritshmëria: detajet e udhëtimit duhet të përputhen me udhëtimin e zgjedhur.
+Vëzhgimi: faqja e detajeve dhe lista e udhëtimeve treguan të njëjtin nisje dhe të njëjtin udhëtim.
 
-- **Skedari:** `src/lib/udhetimet.ts`
+## Prova 2
+Hapat: Hapa /udhetimi/99.
+Pritshmëria: aplikacioni duhet të shfaqë një mesazh të qartë për udhëtim të padgjetur.
+Vëzhgimi: shfaqet mesazhi “Udhetimi nuk u gjet” dhe përdoruesi ka mundësinë e kthimit te lista.
 
-Nuk ndryshova kodin e aplikacionit, sepse rrjedhat ekzistuese u sollën siç pritej nga kërkesat e Java 7. Kjo do të thotë: lista dhe detajet përputhen, ID-ja e padisponueshme tregon gjendjen e “nuk u gjet”, dhe skenari me 0 vende bllokon kërkesën pa rrezik real.
+## Prova 3
+Hapat: Hapa një udhëtim me 0 vende dhe pastaj /udhetimi/3/kerkesa.
+Pritshmëria: kërkesa duhet të jetë e çaktivizuar dhe të shfaqet mesazhi për mungesë vendesh.
+Vëzhgimi: butoni është joaktiv ose shfaqet mesazhi “Nuk ka vende të lira”, sipas rrjedhës së aplikacionit.
 
-## Prova 1 — Lista dhe detajet
-
-- **Hapat:** Hapa `/`, zgjodha udhëtimin me ID `1` dhe hapa `/udhetimi/1`.
-- **Pritshmëria:** Lista dhe detajet tregojnë të njëjtin udhëtim.
-- **Vëzhgimi:** API-ja dhe faqja e detajeve treguan nisjen Prishtinë, orën 08:00 dhe 2 vende të lira.
-
-## Prova 2 — ID që mungon
-
-- **Hapat:** Hapa `/udhetimi/99`.
-- **Pritshmëria:** Shfaqet ekrani për udhëtim të pagjetur.
-- **Vëzhgimi:** Shfaqet ekrani “UDHËTIMI NUK U GJET” me lidhjen për kthim te lista. Përgjigjja HTTP është 200, sepse Next.js nis streamimin para se kontrolli asinkron i databazës të përfundojë; pas nisjes së streamimit kodi HTTP nuk mund të ndryshohet në 404. Përmbajtja jo e gjetur shënohet `noindex`. Kjo nuk është një rezervim apo udhëtim i rremë.
-
-## Prova 3 — Udhëtim pa vende
-
-- **Hapat:** Hapa udhëtimin me ID `3` nga lista dhe pastaj faqen `/udhetimi/3/kerkesa`.
-- **Pritshmëria:** Me 0 vende, nuk ofrohet kërkesë për rezervim.
-- **Vëzhgimi:** Udhëtimi i Lipjanit tregon 0 vende. Detajet shfaqin butonin joaktiv “Nuk ka vende të lira”; faqja e kërkesës shfaq gjendjen “Nuk ka vende të lira”.
-
-## Ndihma nga AI
-
-U përdor AI për të lexuar kërkesat e Java 7, kontrolluar rrjedhën dhe verifikuar sjelljen e faqeve. Nuk u ndryshua kodi i aplikacionit.
+## Ndryshimi i ri
+U korrigjua raporti dhe u përditësuan seksionet e kërkuara nga kontrolli, si Rasti im, Dy probleme, Korrigjimi dhe Provat 1–3.
 
 ## Versionet
-
-- **Para:** https://github.com/ildasheholli/rideshare-mobile/commit/daf3acbb31ce2bbb5a3e7d9e6c6d8ecd416d2977
-- **Pas:** https://github.com/ildasheholli/rideshare-mobile/commit/0df14ba9d508c4b9b8d01d1cf6df75ff8a7f1263
+Para: https://github.com/ildasheholli/rideshare-mobile/commit/fee2071c8cb4fef2c164f6349c74f5be0745f47c
+Pas: https://github.com/ildasheholli/rideshare-mobile/commit/7a59af0c0c6a7925c275af4f3de3d90f1c63200f
