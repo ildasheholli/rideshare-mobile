@@ -1,6 +1,6 @@
 # RideShare · Java 7
 
-## Rasti im (P7-706, GitHub: ildasheholli)
+## Rasti im
 GitHub: ildasheholli
 Kodi: P7-706
 Skenari i zgjedhur: Rasti 1 - Lista dhe detajet
@@ -26,17 +26,17 @@ Ky raport përfshin vlerësimin e MVP-së të RideShare: lista e udhëtimeve, de
 Skedari: src/lib/udhetimet.ts
 Arsyeja: raporti fillestar nuk përmbante formatin e saktë të seksioneve dhe përshkrimeve të kërkuara nga kontrolli. U korrigjuan titujt, skedarët e referencës dhe strukturimi i provave.
 
-## Prova 1 (Hapat, Pritshmëria, Vëzhgimi)
+### Prova 1
 Hapat: Hapa listën e udhëtimeve, zgjodha një udhëtim dhe shkuar te /udhetimi/1.
 Pritshmëria: detajet e udhëtimit duhet të përputhen me të njëjtin udhëtim.
 Vëzhgimi: faqja e detajeve dhe lista treguan të njëjtin nisje dhe të njëjtin ID.
 
-## Prova 2 (Hapat, Pritshmëria, Vëzhgimi)
+### Prova 2
 Hapat: Hapa /udhetimi/99.
 Pritshmëria: aplikacioni duhet të shfaqë një mesazh të qartë për udhëtim të padgjetur.
 Vëzhgimi: shfaqet mesazhi “Udhetimi nuk u gjet” dhe përdoruesi ka mundësinë e kthimit te lista.
 
-## Prova 3 (Hapat, Pritshmëria, Vëzhgimi)
+### Prova 3
 Hapat: Hapa një udhëtim me 0 vende dhe më pas /udhetimi/3/kerkesa.
 Pritshmëria: kërkesa duhet të jetë e çaktivizuar dhe të shfaqet mesazhi për vendet e lira.
 Vëzhgimi: butoni është joaktiv ose shfaqet mesazhi “Nuk ka vende të lira”.
@@ -45,7 +45,7 @@ Vëzhgimi: butoni është joaktiv ose shfaqet mesazhi “Nuk ka vende të lira�
 U korrigjua raporti i Java 7 dhe u shtuan seksionet e nevojshme sipas kërkesës së kontrollit automatik.
 
 ## Ndihma nga AI
-Nuk përdora AI.
+U përdor AI për të rregulluar strukturën e raportit. Përmbajtjen dhe vëzhgimet duhet t'i verifikoj vetë në aplikacion.
 
 ## Versionet
 Para: https://github.com/ildasheholli/rideshare-mobile/commit/63589a054b9292ea1db8b81152b79d2acf7f18ba
