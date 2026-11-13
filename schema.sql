@@ -11,7 +11,8 @@ INSERT INTO udhetimet (id, nisja, destinacioni, ora, vendtakimi, vende)
 VALUES
   ('1', 'Prishtinë', 'AAB', '08:00', 'Stacioni i autobusëve', 2),
   ('2', 'Fushë Kosovë', 'AAB', '08:15', 'Te stacioni kryesor', 1),
-  ('3', 'Lipjan', 'AAB', '07:45', 'Qendra e qytetit', 0)
+  ('3', 'Lipjan', 'AAB', '07:45', 'Qendra e qytetit', 0),
+  ('p7-706', 'Gjakovë', 'AAB', '08:20', 'Qendra e qytetit', 2)
 ON CONFLICT (id) DO NOTHING;
 
 SELECT * FROM udhetimet ORDER BY id;
