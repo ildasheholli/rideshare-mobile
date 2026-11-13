@@ -4,10 +4,10 @@
 GitHub: ildasheholli
 Kodi: P7-706
 Skenari i zgjedhur: Rasti 1 - Lista dhe detajet
-ID i udhëtimit: p7-706
 Të dhënat fiktive të rastit: Gjakovë → AAB, 08:20, 2 vende. Ora për provën e re: 08:25.
 
 ## Parashikimi
+ID i udhëtimit për provë: p7-706.
 Prisja që lista e udhëtimeve të shfaqte udhëtime me të dhëna korrekte, që detajet e udhëtimit të përputheshin me ID-n e zgjedhur, dhe që kur nuk kishte vende të lira, kërkesa të ishte e çaktivizuar. Po ashtu prisja një mesazh të qartë kur udhëtimi nuk ekzistonte.
 
 ## Raporti i MVP-së
