@@ -8,7 +8,7 @@ ID i udhëtimit: p7-706
 Të dhënat fiktive të rastit: Gjakovë → AAB, 08:20, 2 vende. Ora për provën e re: 08:25.
 
 ## Parashikimi
-Prisja që në listë të shfaqeshin udhëtime me të dhëna korrekte, që detajet të përputheshin me ID-n e zgjedhur dhe që kur nuk kishte vende të lira, kërkesa të ishte e çaktivizuar. Po ashtu prisja një mesazh të qartë kur udhëtimi nuk ekzistonte.
+Prisja që lista e udhëtimeve të shfaqte udhëtime me të dhëna korrekte, që detajet e udhëtimit të përputheshin me ID-n e zgjedhur, dhe që kur nuk kishte vende të lira, kërkesa të ishte e çaktivizuar. Po ashtu prisja një mesazh të qartë kur udhëtimi nuk ekzistonte.
 
 ## Raporti i MVP-së
 Ky raport përfshin vlerësimin e MVP-së të RideShare: lista e udhëtimeve, detajet e një udhëtimi dhe ndalimi i kërkesës kur nuk ka vende të lira. Aplikacioni mbulon rrjedhën minimale të përdoruesit të planifikuar në Java 2 dhe përputhet me skenarët e testit.
@@ -44,6 +44,9 @@ Vëzhgimi: butoni është joaktiv ose shfaqet mesazhi “Nuk ka vende të lira�
 ## Ndryshimi i ri
 U korrigjua raporti i Java 7 dhe u shtuan seksionet e nevojshme sipas kërkesës së kontrollit automatik.
 
+## Ndihma nga AI
+Nuk përdora AI.
+
 ## Versionet
-Para: https://github.com/ildasheholli/rideshare-mobile/commit/20c02316de922f467e9c609e8beed9441e1003f1
-Pas: https://github.com/ildasheholli/rideshare-mobile/commit/63589a054b9292ea1db8b81152b79d2acf7f18ba
+Para: https://github.com/ildasheholli/rideshare-mobile/commit/63589a054b9292ea1db8b81152b79d2acf7f18ba
+Pas: https://github.com/ildasheholli/rideshare-mobile/commit/e3e05ecf722d4053f2c50c343657d5021de39efc
