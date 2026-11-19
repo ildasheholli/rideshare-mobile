@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { GjendjaUdhetimit } from "@/components/GjendjaUdhetimit";
 import { Vendtakimi } from "@/components/Vendtakimi";
 import { gjejUdhetimin } from "@/lib/udhetimet";
 
@@ -35,7 +36,7 @@ async function DetajetContent({ params }: DetajetProps) {
           <h1>RideShare</h1>
           <p>
             {process.env.DATABASE_URL || process.env.STORAGE_POSTGRES_URL
-              ? "Nuk u lidhëm me databazën. Kontrollo DATABASE_URL dhe ekzekuto schema.sql në Neon."
+              ? "Nuk u lidhëm me databazën. Kontrollo lidhjen dhe ekzekuto schema.sql, schema-java05.sql dhe schema-java10.sql në Neon."
               : "Mungon DATABASE_URL. Vendos lidhjen e Neon në .env.local dhe rinis serverin."}
           </p>
           <Link className="primary-action" href="/">Kthehu te lista</Link>
@@ -65,8 +66,17 @@ async function DetajetContent({ params }: DetajetProps) {
           <div className="detail-item"><dt>Nisja</dt><dd>{udhetim.nisja}</dd></div>
           <div className="detail-item"><dt>Ora</dt><dd>{udhetim.ora}</dd></div>
           <div className="detail-item"><dt>Vendtakimi</dt><dd>{udhetim.vendtakimi}</dd></div>
-          <div className="detail-item"><dt>Vende të lira</dt><dd>{udhetim.vende}</dd></div>
         </dl>
+        <GjendjaUdhetimit
+          lejoKerkesen={false}
+          udhetimFillestar={{
+            id: udhetim.id,
+            nisja: udhetim.nisja,
+            destinacioni: udhetim.destinacioni,
+            ora: udhetim.ora,
+            vende: udhetim.vende,
+          }}
+        />
         <Vendtakimi />
         <div className="detail-actions">
           {udhetim.vende > 0 ? (
@@ -78,7 +88,7 @@ async function DetajetContent({ params }: DetajetProps) {
           )}
           <Link className="secondary-action" href="/">Kthehu te lista</Link>
         </div>
-        <p className="detail-footnote">Kërkesa është vetëm demonstrim. Nuk dërgohet asgjë te shoferi.</p>
+        <p className="detail-footnote">Kërkesa ruhet në server; vendi konfirmohet vetëm pasi shoferi e pranon.</p>
       </section>
       <footer className="page-footer"><span>RideShare <span className="footer-separator">/</span> Demo mësimore</span><span>PA REZERVIM REAL</span></footer>
     </main>

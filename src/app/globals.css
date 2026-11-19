@@ -108,6 +108,25 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--coral); outline
 .detail-item:nth-child(odd) { border-right: 1px solid var(--line); }
 .detail-item dt { margin-bottom: 8px; color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
 .detail-item dd { margin: 0; font-size: 16px; font-weight: 650; }
+.live-trip { display: grid; gap: 14px; margin: 18px 0; padding: 16px; border: 1px solid var(--line); background: rgba(255, 255, 255, .62); }
+.live-trip h2 { margin: 0 0 12px; font-family: Georgia, "Times New Roman", serif; font-size: 22px; font-weight: 400; }
+.live-trip-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0; }
+.live-trip-grid > div { padding: 10px; border: 1px solid var(--line); }
+.live-trip-grid dt { color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.live-trip-grid dd { margin: 5px 0 0; font-size: 17px; font-weight: 700; }
+.live-connection, .live-warning, .live-action-message { margin: 0; font-size: 12px; line-height: 1.6; }
+.live-connection { color: var(--green); }
+.live-warning { padding: 10px; border: 1px solid #e6b29f; background: #fff3ee; color: #8b3d2c; }
+.live-request-panel { display: grid; justify-items: start; gap: 8px; padding-top: 12px; border-top: 1px solid var(--line); }
+.live-request-panel .eyebrow, .live-request-panel > p { margin: 0; }
+.live-request-panel > strong { font-size: 15px; }
+.live-request-panel > p:not(.eyebrow) { color: var(--muted); font-size: 12px; }
+.live-request-panel button:disabled { cursor: not-allowed; opacity: .65; }
+.live-request-list { display: grid; width: 100%; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.live-request-list li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding: 10px; border: 1px solid var(--line); background: white; font-size: 13px; }
+.live-action-message { color: var(--green); }
+.live-request-page { display: grid; gap: 10px; }
+.live-request-page h1, .live-request-page > p { margin: 0; }
 .meeting-picker { display: grid; gap: 10px; margin-top: 20px; padding: 18px 16px 4px; border-top: 1px solid var(--line); }
 .meeting-picker h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 24px; font-weight: 400; }
 .meeting-description { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
@@ -184,6 +203,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--coral); outline
   .detail-panel, .state-panel { padding: 16px; }
   .state-panel { margin-top: 28px; }
   .detail-item { min-height: 78px; padding: 13px 10px; }
+  .live-trip { padding: 12px; }
+  .live-request-list li { align-items: flex-start; flex-direction: column; }
   .meeting-picker { padding-right: 10px; padding-left: 10px; }
 }
 

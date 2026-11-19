@@ -73,14 +73,17 @@ async function PanelContent({ searchParams }: PanelProps) {
             <p>Përshëndetje, {profil.emri}. Roli yt është <strong>{profil.roli}</strong>.</p>
             <Hyrja brenda oauthConfigured={oauthConfigured} />
             {profil.roli === "shofer" ? (
-              <form className="panel-form" action={ruajOren}>
-                <h2>Ndrysho orën e udhëtimit tënd</h2>
-                <input type="hidden" name="id" value="2" />
-                <label htmlFor="ora">Ora e re për udhëtimin 2</label>
-                <input id="ora" name="ora" type="time" defaultValue="08:15" required />
-                <button className="primary-action" type="submit">Ruaj orën</button>
-                <p>Pronësia verifikohet në server; ndryshimi i formularit nuk jep leje.</p>
-              </form>
+              <>
+                <Link className="panel-nav-link" href="/udhetimi/2">Hap kërkesat live të udhëtimit 2</Link>
+                <form className="panel-form" action={ruajOren}>
+                  <h2>Ndrysho orën e udhëtimit tënd</h2>
+                  <input type="hidden" name="id" value="2" />
+                  <label htmlFor="ora">Ora e re për udhëtimin 2</label>
+                  <input id="ora" name="ora" type="time" defaultValue="08:15" required />
+                  <button className="primary-action" type="submit">Ruaj orën</button>
+                  <p>Pronësia verifikohet në server; ndryshimi i formularit nuk jep leje.</p>
+                </form>
+              </>
             ) : (
               <p>Si udhëtar mund të shohësh udhëtimet, por nuk mund të ndryshosh orën e shoferit.</p>
             )}

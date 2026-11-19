@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { GjendjaUdhetimit } from "@/components/GjendjaUdhetimit";
 import { gjejUdhetimin } from "@/lib/udhetimet";
 
 type KerkesaProps = {
@@ -28,13 +29,13 @@ async function KerkesaContent({ params }: KerkesaProps) {
             <span className="wordmark-mark">R</span>
             <span>RideShare</span>
           </Link>
-          <span className="topbar-location">KËRKESË DEMO</span>
+          <span className="topbar-location">KËRKESË · JAVA 10</span>
         </header>
         <section className="state-panel" role="alert">
           <h1>RideShare</h1>
           <p>
             {process.env.DATABASE_URL || process.env.STORAGE_POSTGRES_URL
-              ? "Nuk u lidhëm me databazën. Kontrollo DATABASE_URL dhe ekzekuto schema.sql në Neon."
+              ? "Nuk u lidhëm me databazën. Kontrollo lidhjen dhe ekzekuto schema.sql, schema-java05.sql dhe schema-java10.sql në Neon."
               : "Mungon DATABASE_URL. Vendos lidhjen e Neon në .env.local dhe rinis serverin."}
           </p>
           <Link className="primary-action" href={`/udhetimi/${id}`}>Kthehu te detajet</Link>
@@ -52,27 +53,23 @@ async function KerkesaContent({ params }: KerkesaProps) {
           <span className="wordmark-mark">R</span>
           <span>RideShare</span>
         </Link>
-        <span className="topbar-location">KËRKESË DEMO</span>
+        <span className="topbar-location">KËRKESË · JAVA 10</span>
       </header>
       <Link className="back-link" href={`/udhetimi/${id}`}>← <span>Kthehu te detajet</span></Link>
-      {udhetim.vende > 0 ? (
-        <section className="state-panel" aria-labelledby="request-title">
-          <p className="eyebrow"><span>HAPI 03</span> · KËRKESË E SIMULUAR</p>
-          <div className="status-mark" aria-hidden="true">…</div>
-          <h1 id="request-title">Simulim:<br />Në pritje</h1>
-          <p>Kërkesa për udhëtimin nga {udhetim.nisja} nuk është dërguar te shoferi.</p>
-          <div className="request-summary"><span>{udhetim.nisja} → {udhetim.destinacioni} · {udhetim.ora}</span><span className="request-status">Në pritje</span></div>
-          <p>Asgjë nuk ruhet apo dërgohet. Konfirmimet reale nuk janë pjesë e këtij demonstrimi.</p>
-          <Link className="primary-action" href={`/udhetimi/${id}`}>Kthehu te udhëtimi</Link>
-        </section>
-      ) : (
-        <section className="state-panel">
-          <p className="eyebrow"><span>STATUSI</span> · UDHËTIMI I PLOTË</p>
-          <h1>Nuk ka vende të lira.</h1>
-          <p>Zgjidh një nisje tjetër nga lista e udhëtimeve.</p>
-          <Link className="primary-action" href="/">Kthehu te lista</Link>
-        </section>
-      )}
+      <section className="state-panel live-request-page" aria-labelledby="request-title">
+        <p className="eyebrow"><span>JAVA 10</span> · KËRKESË E RUAJTUR</p>
+        <h1 id="request-title">Kërkesa për udhëtim</h1>
+        <p>{udhetim.nisja} → {udhetim.destinacioni} · nisja {udhetim.ora}</p>
+        <GjendjaUdhetimit
+          udhetimFillestar={{
+            id: udhetim.id,
+            nisja: udhetim.nisja,
+            destinacioni: udhetim.destinacioni,
+            ora: udhetim.ora,
+            vende: udhetim.vende,
+          }}
+        />
+      </section>
       <footer className="page-footer"><span>RideShare <span className="footer-separator">/</span> Demo mësimore</span><span>PA REZERVIM REAL</span></footer>
     </main>
   );

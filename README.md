@@ -1,6 +1,6 @@
 # RideShare Mobile
 
-A mobile-first RideShare demo built with Next.js App Router. The trip data is fictional; favorites are stored per signed-in GitHub account, while ride requests remain simulated.
+A mobile-first RideShare demo built with Next.js App Router. Trip data is fictional. Signed-in users can save personal favorites and send ride requests through Neon; only the trip's owner can accept a request, which consumes one seat.
 
 ## Run locally
 
@@ -15,11 +15,12 @@ Open `http://localhost:3000`.
 
 - `/` lists three sample departures.
 - `/udhetimi/2` shows trip details.
-- `/udhetimi/2/kerkesa` shows the simulated pending request.
+- `/udhetimi/2/kerkesa` sends a request and displays its live status.
 - `/udhetimi/99` shows the not-found state.
 - Signed-in users can save trips from `/`; favorites are stored in Neon and remain after refresh.
+- Trip details show role-specific requests and seats, refreshed every five seconds.
 
-Run `schema-java05.sql` and then `schema-java09.sql` in Neon after creating the trips table with `schema.sql`.
+Initialize Neon by running `schema.sql`, `schema-java05.sql`, `schema-java09.sql`, and `schema-java10.sql` in order.
 
 ## Offline public list
 
