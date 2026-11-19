@@ -19,6 +19,10 @@ export const authOptions: NextAuthOptions = {
   },
 };
 
+export function isGitHubOAuthConfigured(): boolean {
+  return Boolean(process.env.GITHUB_ID && process.env.GITHUB_SECRET && process.env.NEXTAUTH_SECRET);
+}
+
 declare module "next-auth" {
   interface Session {
     user: { id: string } & DefaultSession["user"];

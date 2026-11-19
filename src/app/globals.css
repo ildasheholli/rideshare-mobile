@@ -77,6 +77,18 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--coral); outline
 .trip-time strong { font-family: Georgia, serif; font-size: 23px; font-weight: 400; }
 .trip-card-footer { display: flex; min-height: 36px; align-items: center; justify-content: space-between; gap: 10px; padding-top: 10px; border-top: 1px solid #e8ece5; }
 .trip-destination-label { min-width: 0; overflow: hidden; color: #76847c; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.trip-card-preference { margin-top: 10px; }
+.favorite-summary { display: flex; align-items: center; gap: 7px; margin: 0 0 14px; color: var(--muted); font-size: 12px; }
+.favorite-summary strong { color: var(--ink); font-size: 15px; }
+.favorite-summary span { margin-left: auto; font-size: 10px; }
+.favorite-control { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.favorite-button, .favorite-login { display: inline-flex; min-height: 36px; align-items: center; justify-content: center; gap: 6px; padding: 0 11px; border: 1px solid var(--line); border-radius: 2px; background: transparent; color: var(--ink); font: inherit; font-size: 12px; font-weight: 700; text-decoration: none; cursor: pointer; }
+.favorite-button > span { color: var(--green); font-size: 18px; }
+.favorite-button-saved { border-color: #b6ca9f; background: #f3f8e6; }
+.favorite-button:disabled { cursor: default; opacity: .8; }
+.favorite-login { background: var(--lime); }
+.favorite-status { min-height: 18px; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+.favorite-button:not(:disabled):hover, .favorite-login:hover { border-color: #a8b7ac; background: #fff; }
 .card-link { display: inline-flex; min-height: 34px; align-items: center; gap: 12px; padding: 0 11px; border-radius: 2px; background: var(--lime); color: var(--ink); font-size: 11px; font-weight: 750; text-decoration: none; white-space: nowrap; transition: background 160ms ease; }
 .card-link:hover { background: #c5e05c; }
 .card-link span:last-child { color: var(--green); font-size: 15px; }
@@ -164,6 +176,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--coral); outline
   .trip-card { padding: 15px 14px 12px; }
   .route-names h2 { font-size: 16px; }
   .trip-destination-label { max-width: 60%; font-size: 8px; }
+  .favorite-summary { flex-wrap: wrap; }
+  .favorite-summary span { margin-left: 0; }
+  .favorite-control { align-items: flex-start; flex-direction: column; gap: 6px; }
   .page-footer { align-items: flex-start; flex-direction: column; justify-content: center; gap: 6px; padding: 12px 0; }
   .detail-heading { padding: 36px 0 22px; }
   .detail-panel, .state-panel { padding: 16px; }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ButoniPreferimi } from "@/components/Preferimet";
 import type { Udhetim } from "@/lib/udhetimet";
 
 export function KartaUdhetimi({ udhetim }: { udhetim: Udhetim }) {
@@ -36,6 +37,9 @@ export function KartaUdhetimi({ udhetim }: { udhetim: Udhetim }) {
           <span>{kaVende ? "Detajet" : "Shiko"}</span>
           <span aria-hidden="true">↗</span>
         </Link>
+      </div>
+      <div className="trip-card-preference">
+        <ButoniPreferimi udhetimId={udhetim.id} />
       </div>
     </article>
   );

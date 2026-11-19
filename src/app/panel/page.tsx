@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { connection } from "next/server";
 import Hyrja from "@/components/Hyrja";
+import { isGitHubOAuthConfigured } from "@/lib/auth";
 import { profiliIm } from "@/lib/lejet";
 import { ruajOren } from "./actions";
 
@@ -52,9 +53,7 @@ async function PanelContent({ searchParams }: PanelProps) {
     );
   }
 
-  const oauthConfigured = Boolean(
-    process.env.GITHUB_ID && process.env.GITHUB_SECRET && process.env.NEXTAUTH_SECRET,
-  );
+  const oauthConfigured = isGitHubOAuthConfigured();
 
   return (
     <main className="site-shell subpage">

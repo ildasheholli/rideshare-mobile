@@ -1,7 +1,11 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { KartaUdhetimi } from "@/components/KartaUdhetimi";
+import { PreferimetProvider } from "@/components/Preferimet";
+import { authOptions, isGitHubOAuthConfigured } from "@/lib/auth";
+import { lexoPreferimet } from "@/lib/preferimet";
 import { lexoUdhetimet, type Udhetim } from "@/lib/udhetimet";
+import { getServerSession } from "next-auth";
 
 export default function Home() {
   return (
@@ -13,8 +17,13 @@ export default function Home() {
 
 async function HomeContent() {
   let udhetimet: Udhetim[];
+  let preferimet: string[];
+  let userIsLoggedIn: boolean;
   try {
+    const session = isGitHubOAuthConfigured() ? await getServerSession(authOptions) : null;
+    userIsLoggedIn = Boolean(session?.user?.id);
     udhetimet = await lexoUdhetimet();
+    preferimet = session?.user?.id ? await lexoPreferimet(session.user.id) : [];
   } catch {
     return (
       <main className="site-shell subpage">
@@ -32,7 +41,7 @@ async function HomeContent() {
           <h1>RideShare</h1>
           <p>
             {process.env.DATABASE_URL || process.env.STORAGE_POSTGRES_URL
-              ? "Nuk u lidhëm me databazën. Kontrollo DATABASE_URL dhe ekzekuto schema.sql në Neon."
+              ? "Nuk u lidhëm me databazën. Kontrollo lidhjen dhe ekzekuto schema.sql, schema-java05.sql dhe schema-java09.sql në Neon."
               : "Mungon DATABASE_URL. Vendos lidhjen e Neon në .env.local dhe rinis serverin."}
           </p>
           <Link className="primary-action" href="/">Provo përsëri</Link>
@@ -75,15 +84,17 @@ async function HomeContent() {
           </div>
           <span className="date-chip">NISJET E SOTME <span>·</span> PRISHTINË</span>
         </div>
-        <div className="trip-list">
-          {udhetimet.length === 0 ? (
-            <p>Nuk ka udhëtime për momentin.</p>
-          ) : (
-            udhetimet.map((udhetim) => (
-              <KartaUdhetimi key={udhetim.id} udhetim={udhetim} />
-            ))
-          )}
-        </div>
+        <PreferimetProvider initialIds={preferimet} iKycur={userIsLoggedIn}>
+          <div className="trip-list">
+            {udhetimet.length === 0 ? (
+              <p>Nuk ka udhëtime për momentin.</p>
+            ) : (
+              udhetimet.map((udhetim) => (
+                <KartaUdhetimi key={udhetim.id} udhetim={udhetim} />
+              ))
+            )}
+          </div>
+        </PreferimetProvider>
       </section>
 
       <footer className="page-footer">
