@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Vendtakimi } from "@/components/Vendtakimi";
 import { gjejUdhetimin } from "@/lib/udhetimet";
 
 type DetajetProps = {
@@ -66,6 +67,7 @@ async function DetajetContent({ params }: DetajetProps) {
           <div className="detail-item"><dt>Vendtakimi</dt><dd>{udhetim.vendtakimi}</dd></div>
           <div className="detail-item"><dt>Vende të lira</dt><dd>{udhetim.vende}</dd></div>
         </dl>
+        <Vendtakimi />
         <div className="detail-actions">
           {udhetim.vende > 0 ? (
             <Link className="primary-action" href={`/udhetimi/${id}/kerkesa`}>
